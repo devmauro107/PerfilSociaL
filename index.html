@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Link Perfil Social</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <button class="theme-toggle-btn" onclick="toggleTheme()">
+    <i class="fas fa-palette"></i>
+    </button>
+
+<div class="card">
+        <img class="profile-pic" src="ms003.jpg" alt="Foto de perfil">
+        <h1>Mauro Sergio</h1>
+        <p class="location">Estudante de TI</p>
+        <p class="description">"Futuro Full Stack"</p>
+        <p class="quote" id="quote">"A tecnologia move o mundo."</p>
+
+
+    <div class="buttons">
+        <a href="https://github.com/devmauro107" rel="noopener noreferrer" class="btn btn-github"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/mauro-sergiopb/" rel="noopener noreferrer" class="btn btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="#" rel="noopener noreferrer" class="btn btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://www.instagram.com/maurooliveira2014/" class="btn btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+</div>
+
+    <script>
+        const themes = ['', 'light', 'neon', 'blue', 'forest', 'candy'];
+        let currentThemeIndex = 0;
+
+        function toggleTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            document.body.className = themes[currentThemeIndex];
+
+            const btn = document.querySelector('.theme-toggle-btn i');
+            btn.style.transform = 'rotate(360deg)';
+            btn.style.transition = 'transform 0.5s';
+            setTimeout(() => {
+            btn.style.transform = 'rotate(0deg)';
+            }, 500);
+        }
+        const quotes = [
+            "“A tecnologia move o mundo.” – Steve Jobs",
+            "“Code é poesia.”",
+            "“Todo programador é um escritor... de bugs!”",
+            "“Primeiro, resolva o problema. Depois, escreva o código.” – John Johnson",
+            "“Aprender a programar é como ganhar um superpoder.”",
+            "“Sucesso é a soma de pequenos esforços repetidos diariamente.”"
+        ];
+
+        const quoteEl = document.getElementById("quote");
+        let quoteIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentQuote = quotes[quoteIndex];
+            const currentText = currentQuote.substring(0, charIndex);
+
+            quoteEl.textContent = currentText;
+
+            if (!isDeleting && charIndex < currentQuote.length) {
+            charIndex++;
+            setTimeout(typeWriter, 60); // velocidade de digitação
+            } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+            setTimeout(typeWriter, 30); // velocidade ao apagar
+            } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+            }
+            setTimeout(typeWriter, 1200); // pausa entre frases
+            }
+        }
+
+        // Iniciar a animação
+        typeWriter();
+</script>
+
+</body>
+</html>

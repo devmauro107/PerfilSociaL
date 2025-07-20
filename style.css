@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ background-color: #121212;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;}
+
+.card {
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;}
+
+.location {
+  color: var(--text-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-size: 16px;
+  font-style: italic;
+  color: #ccc;
+  margin-top: 15px;
+  transition: opacity 0.5s ease;
+  min-height: 40px; /* evita "pulo" ao trocar texto */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.btn:hover {
+  background-color: #555;
+}
+.btn i {
+  margin-right: 8px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn i {
+  margin-right: 8px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tema Padrão (Dark) */
+
+/* Light */
+body.light {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+body.light .card {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Neon */
+body.neon {
+  background-color: #000;
+  color: #39ff14;}
+
+  body.neon .card {
+  background-color: #111;
+  border: 1px solid #39ff14;
+}
+
+/* Blue */
+body.blue {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+}
+
+/* Forest */
+body.forest {
+  background-color: #0b3d0b;
+  color: #aaffaa;
+}
+
+body.forest .card {
+  background-color: #134e13;
+}
+/* Candy */
+body.candy {
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  color: #442244;
+}
+
+body.candy .card {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* Tema Light */
+
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.theme-switcher button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #333;
+  color: white;
+  transition: 0.3s;
+}
+
+.theme-switcher button:hover {
+  transform: scale(1.1);
+  background-color: #555;
+}
+
+.theme-toggle-btn {
+ position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #444;
+  transition: 0.3s;}
+
+.btn-github {
+  background: linear-gradient(45deg, #333, #6e6e6e);
+}
+
+.btn-linkedin {
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
+}
+
+.btn-twitter {
+  background: linear-gradient(45deg, #1da1f2, #0d8ddb);
+}
+
+.btn-instagram {
+  background: linear-gradient(45deg, #e1306c, #fd1d1d);
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .theme-toggle-btn {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}
